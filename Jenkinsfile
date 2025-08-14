@@ -2,26 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                // Pull source code from Git
-                git branch: 'master', url: 'https://github.com/Savita-Nalawade/simple-java-application'
+                git branch: 'master',
+                    url: 'https://github.com/Savita-Nalawade/simple-java-application.git',
+                    credentialsId: 'Github-Creds'
             }
         }
 
         stage('Build') {
             steps {
-                script {
-                    sh 'javac Hello.java'
-                }
+                // Compile and package Java project
+                bat 'mvn clean package'
             }
         }
 
         stage('Run') {
             steps {
-                script {
-                    sh 'java Hello'
-                }
+                // Run the generated JAR file
+                bat 'java -jar target/*.jar'
             }
         }
     }
