@@ -13,14 +13,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile and package Java project
-                bat 'mvn clean package'
+                bat 'javac HelloWorld.java'
             }
         }
 
         stage('Run') {
             steps {
                 // Run the generated JAR file
-                bat 'java -jar target/*.jar'
+                bat 'java HelloWorld'
             }
         }
     }
