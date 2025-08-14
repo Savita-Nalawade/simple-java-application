@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Pull source code from Git
-                git branch: 'main', url: 'https://github.com/Savita-Nalawade/simple-java-application'
+                git branch: 'master', url: 'https://github.com/Savita-Nalawade/simple-java-application'
             }
         }
 
