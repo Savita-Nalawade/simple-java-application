@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master',
-                    url: 'https://github.com/Savita-Nalawade/simple-java-application.git',
-                    credentialsId: 'Github-Creds'
+                // Pull source code from Git
+                git branch: 'master', url: 'https://github.com/Savita-Nalawade/simple-java-application'
             }
         }
 
